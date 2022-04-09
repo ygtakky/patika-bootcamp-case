@@ -13,17 +13,15 @@ function App() {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate("/signup");
-    } else {
-      navigate("/home");
+      navigate("/signup")
     }
-  }, [isLoggedIn, navigate]);
+  }, [navigate, isLoggedIn])
 
   return (
     <Layout className="app">
       {isLoggedIn ? <AppHeader /> : null}
       <Layout>
-        <Content className={isLoggedIn ? "app__content app__content-logged-in" : "app__content"}>
+        <Content className="app__content">
           <Outlet />
         </Content>
       </Layout>

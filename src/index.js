@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
 import SignupForm from "./components/Auth/SignupForm";
+import PaymentPage from "./components/MainPage/PaymentPage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -18,6 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/home" element={<MainPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/signup" element={<SignupForm />} />
         </Route>
       </Routes>
