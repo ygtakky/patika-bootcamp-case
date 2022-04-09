@@ -26,8 +26,8 @@ const SignupForm = () => {
   };
 
   return (
-    <div className='app__signup'>
-    <Card className='app__signup__card'>
+    <div className='app__container'>
+    <Card className='app__container__card app__container__card-signup'>
     <Form name="signup" form={form} layout='vertical' className='login-form' initialValues={""} onFinish={onFinish}>
       <Form.Item name="fullName" label="Adınız ve Soyadınız" rules={[{required: true, message: 'Lütfen adınızı ve soyadınızı girin!', type: "string"}]} style={cardItemStyles}>
         <Input size='large' className='border-rounded' prefix={<UserOutlined className="site-form-item-icon"></UserOutlined>} />

@@ -1,7 +1,8 @@
 import { Button, Col, Divider, Row } from "antd";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetPackages } from "../../redux/packagesSlice";
 import PackageCard from "./PackageCard";
 
 const MainPage = () => {
@@ -9,7 +10,12 @@ const MainPage = () => {
   const currentPrice = useSelector((state) => state.packages.currentPrice);
   const currency = useSelector((state) => state.packages.currency);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(resetPackages())
+  }, [dispatch])
 
   const handleContinue = () => {
     navigate("/payment");
@@ -30,7 +36,7 @@ const MainPage = () => {
           Seçilen Paket Tutarı : <strong>{currentPrice} {currency}</strong>
       </Col>
       <Col span={8}>
-        <Button size="large" style={{height: "100%", width: "100%", borderRadius: 8}} type="primary" onClick={handleContinue}>Devam Et</Button>
+        <Button size="large" className="border-rounded" block type="primary" onClick={handleContinue}>Devam Et</Button>
       </Col>
     </Row>
     </div>

@@ -35,6 +35,10 @@ const packagesSlice = createSlice({
       state.selectedPackages.splice(index, 1);
       state.currentPrice -= action.payload.amount;
     },
+    resetPackages: (state) => {
+      state.selectedPackages = [];
+      state.currentPrice = 0;
+    }
   },
   extraReducers: {
     [getPackages.pending]: (state, action) => {
@@ -54,6 +58,6 @@ const packagesSlice = createSlice({
   },
 });
 
-export const { addPackage, removePackage } = packagesSlice.actions;
+export const { addPackage, removePackage, resetPackages } = packagesSlice.actions;
 
 export default packagesSlice.reducer;

@@ -19,20 +19,28 @@ $app-background-color: #E5E5E5;
     font-size: rem(16px);
   }
 
-  &__signup {
+  &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: rem(120px);
+    padding-top: rem(80px);
 
     &__card {
-      width: rem(550px);
-      height: rem(418px);
       border-radius: rem(12px);
       box-shadow: rem(0px) rem(5px) rem(20px) rem(20px) #00000008;
-      padding: rem(52px);
-      padding-top: rem(40px);
+
+      &-payment_success {
+        width: rem(550px);
+        height: rem(360px);
+      }
+
+      &-signup {
+        width: rem(550px);
+        height: rem(418px);
+        padding: rem(52px);
+        padding-top: rem(40px);
+      }
     }
   }
 
@@ -51,18 +59,38 @@ $app-background-color: #E5E5E5;
     }
   }
 }
-.content__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-  box-shadow: rem(0px) rem(5px) rem(20px) rem(20px) rgba(0, 0, 0, 0.03);
-  border-radius: rem(12px);
+
+.payment__page {
+  max-height: 100%;
+  &__col {
+    max-height: 100%
+  }
 }
 
-.content__grid {
-  padding: rem(24px);
+.payment__container {
+  padding: rem(2px);
+  margin-bottom: rem(12px);
+}
+
+.content {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    max-height: 100%;
+    box-shadow: rem(0px) rem(5px) rem(20px) rem(20px) rgba(0, 0, 0, 0.03);
+    border-radius: rem(12px);
+  }
+
+  &__grid {
+    padding: rem(24px);
+  }
+
+  &__overflow {
+    max-height: rem(400px);
+    overflow-y: auto;
+  }
 }
 
 .card {
