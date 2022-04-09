@@ -57,6 +57,7 @@ $app-background-color: #E5E5E5;
 .content__container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
 }
@@ -71,4 +72,12 @@ $app-background-color: #E5E5E5;
 
 .border-rounded {
   border-radius: rem(8px);
+}
+
+.add-border {
+  border: rem(2px) solid #0eda0e;
+}
+
+.remove-border {
+  border: rem(2px) solid #0eda0e00;
 }

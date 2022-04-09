@@ -1,4 +1,7 @@
-import { Card, Col, Divider, Row, Tag, Typography } from "antd";
+import { Card, Col, Divider, Row, Tag} from "antd";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addPackage, removePackage } from "../../redux/packagesSlice";
 
 const cardStyles = {
   height: "100%",
@@ -8,8 +11,21 @@ const cardStyles = {
 };
 
 const PackageCard = ({ data }) => {
+  const [isAdded, setIsAdded] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    if (!isAdded) {
+      dispatch(addPackage(data));
+      setIsAdded(true);
+    } else {
+      dispatch(removePackage(data));
+      setIsAdded(false);
+    }
+  }
+
   return (
-    <Row style={{ height: "139px", minWidth: "489px" }}>
+    <Row className={isAdded ? "add-border" : "remove-border"} style={{ height: "139px", minWidth: "489px", cursor: "pointer" ,borderRadius: 8}} onClick={handleClick}>
       <Col style={{ height: "100%" }}>
         <img
           alt="package"

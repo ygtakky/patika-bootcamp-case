@@ -75,6 +75,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 100%;
   width: 100%;
 }
@@ -91,5 +93,13 @@
 
 .border-rounded {
   border-radius: 0.5rem;
+}
+
+.add-border {
+  border: 0.125rem solid #0eda0e;
+}
+
+.remove-border {
+  border: 0.125rem solid #0eda0e00;
 }
 /*# sourceMappingURL=App.css.map */
