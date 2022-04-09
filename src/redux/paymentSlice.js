@@ -13,9 +13,22 @@ export const sendPayment = createAsyncThunk(
   }
 );
 
+export const getContract = createAsyncThunk(
+  "payment/getContract",
+  async (data, thunkAPI) => {
+    try {
+      const response = await axiosInstance.get(`/payment`);
+      return response.data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const paymentSlice = createSlice({
   name: "payment",
   initialState: {
+    contract: "",
     success: false,
   },
   reducers: {},
@@ -25,6 +38,12 @@ const paymentSlice = createSlice({
     },
     [sendPayment.rejected]: (state, action) => {
       state.success = false;
+    },
+    [getContract.fulfilled]: (state, action) => {
+      state.contract = action.payload.content;
+    },
+    [getContract.rejected]: (state, action) => {
+      state.contract = "";
     },
   }
 });

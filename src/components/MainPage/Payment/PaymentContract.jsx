@@ -1,32 +1,26 @@
 import { Card, Typography } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const PaymentContract = () => {
+  const contract = useSelector((state) => state.payment.contract);
+
+  useEffect(() => {
+    if (contract !== undefined) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(contract, "text/html");
+      document.getElementById("contract").innerHTML = doc.body.outerHTML;
+    }
+  }, [contract]);
+
   return (
     <>
       <Typography.Title level={5}>Sözleşme</Typography.Title>
-      <Card className="border-rounded" bodyStyle={{fontSize: 14, fontWeight: 500}}>
-        <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore maiores
-        doloribus beatae omnis quos ut quod distinctio blanditiis, accusamus
-        quisquam optio consequatur consectetur temporibus nisi soluta enim
-        laboriosam dolores aliquam, praesentium in incidunt! Dolores, quas
-        velit. Beatae quisquam, nesciunt maxime corporis necessitatibus culpa
-        debitis dolores porro mollitia consequatur numquam similique harum,
-        impedit quo. Earum quos aspernatur exercitationem, eveniet numquam
-        ipsam?
-        </p>
-        <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore maiores
-        doloribus beatae omnis quos ut quod distinctio blanditiis, accusamus
-        quisquam optio consequatur consectetur temporibus nisi soluta enim
-        laboriosam dolores aliquam, praesentium in incidunt! Dolores, quas
-        velit. Beatae quisquam, nesciunt maxime corporis necessitatibus culpa
-        debitis dolores porro mollitia consequatur numquam similique harum,
-        impedit quo. Earum quos aspernatur exercitationem, eveniet numquam
-        ipsam?
-        </p>
-      </Card>
+      <Card
+        id="contract"
+        className="border-rounded"
+        style={{ fontSize: 14, fontWeight: 500, padding: 24 }}
+      ></Card>
     </>
   );
 };

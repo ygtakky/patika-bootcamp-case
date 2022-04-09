@@ -1,4 +1,4 @@
-import { Card, Col, DatePicker, Form, Input, InputNumber, Row, Typography } from "antd";
+import { Card, Col, DatePicker, Form, Input, Row, Typography } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
@@ -15,7 +15,7 @@ const PaymentForm = () => {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    const packageIds = selectedPackages.map((item) => item.id);
+    const packageIds = selectedPackages.map((item) => String(item.id));
     const expireDate = moment(values.expireDate).format("MM/YY");
     const paymentInfo = {
       ...values,
@@ -27,7 +27,7 @@ const PaymentForm = () => {
     navigate("/payment/success");
   };
 
-  const handleDateChange = (date, dateString) => {
+  const handleDateChange = (date) => {
     form.setFieldsValue("expireDate", date);
   };
 
@@ -45,7 +45,7 @@ const PaymentForm = () => {
         </Row>
         <Row gutter={24}>
           <Col span={12}>
-          <Form.Item name="cardNumber" label="Kart Numarası" rules={[{required: true, message: "Lütfen kart numarasını yazın1", pattern: /\d+/, }, {len: 19 , message: "Lütfen doğru sayıda numara giriniz!"}]} validateTrigger="onBlur">
+          <Form.Item name="cardNumber" label="Kart Numarası" rules={[{required: true, message: "Lütfen kart numarasını yazın1", pattern: /\d+/ }, {type:"string", len: 19 , message: "Lütfen doğru sayıda numara giriniz!", pattern: /\d+$/}]} validateTrigger="onBlur">
             <NumberFormat format="#### #### #### ####" mask="_" customInput={Input} className="border-rounded"/>
           </Form.Item>
           </Col>

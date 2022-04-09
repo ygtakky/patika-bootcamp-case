@@ -1,5 +1,7 @@
 import { Card } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getContract } from "../../../redux/paymentSlice";
 import PaymentContract from "./PaymentContract";
 import PaymentForm from "./PaymentForm";
 
@@ -11,6 +13,11 @@ const bodyStyle = {
 };
 
 const PaymentMain = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getContract())
+  }, [dispatch])
+
   return (
     <Card className="content__container border-rounded" bodyStyle={bodyStyle}>
       <div className="payment__container">
