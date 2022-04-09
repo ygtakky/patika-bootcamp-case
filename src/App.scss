@@ -1,0 +1,74 @@
+$html-font-size: 16px;
+
+@function rem($pxValue) {
+  @return #{$pxValue / $html-font-size}rem;
+}
+
+$app-background-color: #E5E5E5;
+
+.app {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  min-width: 100vw;
+  background-color: $app-background-color;
+  box-sizing: border-box;
+
+  &__header {
+    background-color: white;
+    box-shadow: rem(0px) rem(2px) rem(11px) rem(10px) rgba(0, 0, 0, 0.02);
+    font-size: rem(16px);
+  }
+
+  &__signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: rem(120px);
+
+    &__card {
+      width: rem(550px);
+      height: rem(418px);
+      border-radius: rem(12px);
+      box-shadow: rem(0px) rem(5px) rem(20px) rem(20px) #00000008;
+      padding: rem(52px);
+      padding-top: rem(40px);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: rem(82px);
+
+    &-logged-in {
+      box-shadow: rem(0px) rem(5px) rem(20px) rem(20px) rgba(0, 0, 0, 0.03);
+      border-radius: rem(12px);
+      width: rem(1100px);
+      background-color: white;
+
+      @media screen and (max-width: 1100px) {
+        width: 100%;
+      }
+    }
+  }
+}
+.content__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.content__grid {
+  padding: rem(24px);
+}
+
+.card {
+  display: flex;
+}
+
+.border-rounded {
+  border-radius: rem(8px);
+}
