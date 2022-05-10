@@ -10,4 +10,4 @@ const AppHeader = () => {
   )
 }
 
-export default AppHeader
+export default AppHeade
