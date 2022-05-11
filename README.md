@@ -4,7 +4,7 @@
 
 # Demo of the website 
 
-![demo gif](https://github.com/ygtakky/patika-bootcamp-case/blob/master/demo.gif)
+![demo gif](https://github.com/ygtakky/patika-bootcamp-case/blob/master/demo.webm)
 
 
 ## Available Commands
