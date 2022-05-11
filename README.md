@@ -1,6 +1,6 @@
 ## Case project done for the Eçözüm Bootcamp
 
-- This site was done mainly with React, antd and react-router-dom
+- This site was done mainly with React, Redux Toolkit, antd and react-router-dom
 
 # Demo of the website 
 
