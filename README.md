@@ -2,6 +2,8 @@
 
 - This site was done mainly with React, Redux Toolkit, antd and react-router-dom
 
+- This site is done for the Eçözüm Bootcamp case study.
+
 # Demo of the website 
 
 ![demo gif](https://github.com/ygtakky/patika-bootcamp-case/blob/master/demo.gif)
